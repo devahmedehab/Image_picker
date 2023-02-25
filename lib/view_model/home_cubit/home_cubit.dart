@@ -10,7 +10,7 @@ class HomeCubit extends Cubit<HomeStates>{
 
   static  HomeCubit get(context) => BlocProvider.of(context );
 
-  File ?image;
+  /*File ?image;
   final imagePicker= ImagePicker();
 
   uploadImage() async{
@@ -21,8 +21,19 @@ class HomeCubit extends Cubit<HomeStates>{
 
     }
 
-  }
+  }*/
 
+  String? imagePath;
+
+  void pickMedia() async {
+    XFile? file = await ImagePicker().pickImage(source: ImageSource.gallery);
+    if (file != null) {
+      imagePath = file.path;
+      emit(PickImageSuccessState());
+    } else  {
+      emit(PickImageErrorState());
+    }
+  }
 
 }
 

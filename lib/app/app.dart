@@ -1,5 +1,7 @@
 
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:task2/view_model/home_cubit/home_cubit.dart';
 import '../presentation/resources/routs_manager.dart';
 import '../presentation/resources/theme_manager.dart';
 
@@ -21,12 +23,19 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return MultiBlocProvider(
+        providers: [
+          BlocProvider(
+              create: (BuildContext context)=>HomeCubit()
+          )
+        ],
+        child: MaterialApp(
       debugShowCheckedModeBanner: false,
       onGenerateRoute: RouteGenerator.getRoute,
       initialRoute: Routes.splashRoute,
       theme: getApplicationTheme(),
-    );
+    ));
+
   }
 }
 

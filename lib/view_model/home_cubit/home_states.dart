@@ -8,6 +8,10 @@ class HomeLoadingState extends HomeStates{}
 
 class HomeSuccessState extends HomeStates{}
 
+class PickImageSuccessState extends HomeStates{}
+
+class PickImageErrorState extends HomeStates{}
+
 class HomeErrorState extends HomeStates{
 
   final String error;
