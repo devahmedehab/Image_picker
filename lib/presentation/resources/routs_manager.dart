@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:task2/presentation/resources/strings_manager.dart';
 import 'package:task2/presentation/splash/splash_view.dart';
 
-import '../../main/home_view.dart';
+import '../home/home_view.dart';
 
 class Routes {
   static const String splashRoute = "/";
