@@ -1,12 +1,11 @@
 import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:image_picker/image_picker.dart';
 import 'package:task2/presentation/components/alert_dailog_widget.dart';
+import 'package:task2/presentation/components/alert_dailog_widget_result.dart';
 import 'package:task2/presentation/resources/strings_manager.dart';
-import 'package:task2/view_model/home_cubit/home_cubit.dart';
-import 'package:task2/view_model/home_cubit/home_states.dart';
+import 'package:task2/data/controller/home_cubit/home_cubit.dart';
+import 'package:task2/data/controller/home_cubit/home_states.dart';
 import '../resources/assets_manager.dart';
 import '../resources/toast_manager.dart';
 import '../resources/values_manager.dart';
@@ -26,15 +25,29 @@ class _MainViewState extends State<MainView> {
   Widget build(BuildContext context) {
     return BlocConsumer<HomeCubit,HomeStates>(
       listener: (context,state){
+
+
         if (state is PickImageSuccessState) {
-          {showDialog(context: context, builder: (_) {
-            /*Future.delayed(const Duration(seconds: 4), () {
-              Navigator.of(context).pop();});*/
+          {
+            showDialog(context: context, builder: (_) {
+            Future.delayed(const Duration(seconds: 4), () {
+              Navigator.of(context).pop();});
             return  AlertDialogWidget(
               imageSrc: File(HomeCubit.get(context).imagePath!),
               text: AppStrings.result,
             );}
           );}}
+        else if (state is ChangeAlertEndState){
+          showDialog(
+              context: context
+              , builder: (_){
+                return const AlertDialogResult(
+                    imageSrc: ImageAssets.splashLogo1,
+                    text: AppStrings.result,
+                    text2: AppStrings.bengin);
+
+          });
+        }
         else if (state is PickImageErrorState) {
           showToast(
               text: AppStrings.tryAgain ,

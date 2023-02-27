@@ -13,6 +13,7 @@ class AppStrings {
 
   static const cancel = "Cancel";
   static const tryAgain = "Try Again";
+  static const bengin = "Bengin";
 
 
 }

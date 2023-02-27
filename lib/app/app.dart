@@ -1,7 +1,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:task2/view_model/home_cubit/home_cubit.dart';
+import 'package:task2/data/controller/home_cubit/home_cubit.dart';
 import '../presentation/resources/routs_manager.dart';
 import '../presentation/resources/theme_manager.dart';
 

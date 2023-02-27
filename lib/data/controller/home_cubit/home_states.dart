@@ -18,3 +18,12 @@ class HomeErrorState extends HomeStates{
 
   HomeErrorState(this.error);
 }
+class ChangeAlertLoadingState extends HomeStates {}
+
+class ChangeAlertStartState extends HomeStates {}
+
+class ChangeAlertEndState extends HomeStates {}
+
+class StartDurationState extends HomeStates {}
+
+class EndDurationState extends HomeStates {}
